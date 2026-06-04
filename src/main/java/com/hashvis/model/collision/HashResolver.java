@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import com.hashvis.model.hashfunc.*;
 import com.hashvis.model.table.*;
+import com.hashvis.model.helper.DataType;
+import com.hashvis.model.helper.HashAction;
 
 public abstract class HashResolver implements CollisionResolver {
 

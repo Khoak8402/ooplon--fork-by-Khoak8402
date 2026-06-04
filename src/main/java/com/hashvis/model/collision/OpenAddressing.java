@@ -5,6 +5,9 @@ import java.util.List;
 import com.hashvis.model.hashfunc.HashFunction;
 import com.hashvis.model.table.Item;
 import com.hashvis.model.table.Row;
+import com.hashvis.model.helper.DataType;
+import com.hashvis.model.helper.HashAction;
+
 abstract class OpenAddressing extends ActionProcessor {
   private HashAction action;
   private Integer probeCount = 0;
@@ -72,8 +75,8 @@ abstract class OpenAddressing extends ActionProcessor {
   private Result processFoundItem(Row row) {
     if(row==null){return null;}
     switch (action){
-      case (HashAction.INSERT) -> { return new Result("Error: Duplicate key " + key, -1);}
-      case (HashAction.DELETE) -> {
+      case HashAction.INSERT -> { return new Result("Error: Duplicate key " + key, -1);}
+      case HashAction.DELETE -> {
         item = row.getItems().get(0);
         item.ghost();
         keyCount--;

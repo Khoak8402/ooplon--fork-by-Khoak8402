@@ -6,6 +6,9 @@ import com.hashvis.model.hashfunc.HashFunction;
 import com.hashvis.model.table.Item;
 import com.hashvis.model.table.Row;
 import java.util.ArrayList;
+import com.hashvis.model.helper.DataType;
+import com.hashvis.model.helper.HashAction;
+
 public class SeparateChaining extends ActionProcessor {
   private Item currentItem = null;
   private HashFunction hashFunc;

@@ -5,6 +5,8 @@ import java.util.List;
 import com.hashvis.model.hashfunc.HashFunction;
 import com.hashvis.model.hashfunc.HashFunctionNumber;
 import com.hashvis.model.hashfunc.HashFunctionString;
+import com.hashvis.model.helper.DataType;
+import com.hashvis.model.helper.HashAction;
 
 public class DoubleHashing extends OpenAddressing {
   private Integer hashValue1 = null;
