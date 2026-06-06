@@ -4,15 +4,10 @@ import java.util.List;
 
 import com.hashvis.model.hashfunc.HashFunction;
 import com.hashvis.model.table.Table;
+import com.hashvis.model.helper.DataType;
+import com.hashvis.model.helper.HashAction;
 
 public interface CollisionResolver {
-  public enum HashAction {
-    INSERT, SEARCH, DELETE
-  }
-
-  public enum DataType {
-    STRING, INTEGER
-  }
 
   // message: action message/result to be displayed to the user
   // currentLine: current line of the pseudocode, -1 is visualizing stop signal

@@ -3,7 +3,7 @@ package com.hashvis.model.collision;
 import java.util.ArrayList;
 import java.util.List;
 import com.hashvis.model.hashfunc.*;
-import com.hashvis.model.table.*;
+import com.hashvis.model.helper.DataType;
 
 public abstract class HashResolver implements CollisionResolver {
 

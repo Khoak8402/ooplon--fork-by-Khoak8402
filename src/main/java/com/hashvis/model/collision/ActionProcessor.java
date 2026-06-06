@@ -2,15 +2,14 @@ package com.hashvis.model.collision;
 
 import java.util.ArrayList;
 
-import com.hashvis.model.table.Row;
 import com.hashvis.model.table.Table;
-import java.util.ArrayList;
 import java.util.List;
-import com.hashvis.model.hashfunc.*;
-import com.hashvis.model.table.*;
+import com.hashvis.model.helper.HashAction;
+
 abstract class ActionProcessor extends HashResolver{
   	protected String key;
   	protected Table table;
+	int tmp=0;
 
 	private  boolean checkpoint=true;
 
@@ -19,7 +18,7 @@ abstract class ActionProcessor extends HashResolver{
 	abstract protected Result  	firstStep();
 	abstract protected Result   searching();
 	abstract protected Result   processInsertion();
-	protected String initalizePseudocode(){	return "step = 0 ; i = base =hash(k,n)";}
+	protected String initalizePseudocode(){	tmp++;return "step = 0 ; i = base =hash(k,n)"+String.valueOf(tmp);}
 	protected ArrayList<String> caseInsert(){
 		ArrayList<String> pseudocode = new ArrayList<String>();
 		pseudocode.add("if (keycount == size of HT) stop insertion");
@@ -52,9 +51,9 @@ abstract class ActionProcessor extends HashResolver{
     	ArrayList<String> pseudocode = new ArrayList<String>();
 		pseudocode.add(initalizePseudocode());
         switch (action) {
-            case (HashAction.INSERT) -> {pseudocode.addAll(caseInsert());}
-            case (HashAction.DELETE) -> {pseudocode.addAll(caseDelete());}
-            case (HashAction.SEARCH) -> {pseudocode.addAll(caseSearch());}
+            case HashAction.INSERT -> {pseudocode.addAll(caseInsert());}
+            case HashAction.DELETE -> {pseudocode.addAll(caseDelete());}
+            case HashAction.SEARCH -> {pseudocode.addAll(caseSearch());}
             default  -> {return new ArrayList<String>();}
         }
     	return pseudocode;
