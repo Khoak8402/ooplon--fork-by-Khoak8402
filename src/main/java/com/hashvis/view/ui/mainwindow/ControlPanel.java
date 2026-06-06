@@ -1,4 +1,4 @@
-package com.hashvis.view.ui.controlpanel;
+package com.hashvis.view.ui.mainwindow;
 
 import javax.swing.*;
 

@@ -34,9 +34,6 @@ public class HashVisualizerView extends JPanel {
   /** Status label below the title. */
   private JLabel statusLabel;
 
-  /** Left padding for the gutter where the execution marker is drawn. */
-  private static final int GUTTER_WIDTH = 20;
-
   /**
    * Constructs the pseudocode view with a title, a status label, and a
    * scrollable panel for the pseudocode lines.
@@ -54,7 +51,7 @@ public class HashVisualizerView extends JPanel {
     titlePanel.add(title);
 
     statusLabel = new JLabel("Status: Waiting...");
-    statusLabel.setFont(new Font("SansSerif", Font.PLAIN, 12));
+    statusLabel.setFont(new Font("SansSerif", Font.PLAIN, 24));
     titlePanel.add(statusLabel);
     add(titlePanel, BorderLayout.NORTH);
 
@@ -80,8 +77,6 @@ public class HashVisualizerView extends JPanel {
     for (String line : lines) {
       JLabel label = new JLabel(line);
       label.setFont(new Font("Monospaced", Font.PLAIN, 14));
-      // GUTTER_WIDTH provides space for the execution marker
-      //label.setBorder(new EmptyBorder(3, GUTTER_WIDTH, 3, 5));
       lineLabels.add(label);
       linePanel.add(label);
     }

@@ -8,8 +8,6 @@ import java.awt.event.ActionListener;
 
 import com.hashvis.model.hashfunc.HashFunction;
 import com.hashvis.view.table.TableView;
-import com.hashvis.view.ui.controlpanel.ControlPanel;
-import com.hashvis.view.ui.controlpanel.CreateControlPanel;
 
 import java.util.List;
 import com.codepane.CodePane;
@@ -48,7 +46,7 @@ public class MainWindow extends JFrame {
    */
   public MainWindow() {
     setTitle("Hash Table Visualizer");
-    setSize(1200, 650);
+    setSize(1300, 650);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setLocationRelativeTo(null);
 

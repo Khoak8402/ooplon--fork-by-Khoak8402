@@ -103,7 +103,11 @@ public class MainWindowController {
      //Take the user data and initialize new hash table
      int tableSize = getTableSize();
      resolver.setHashFunctionFields(hashFunctions);
+     for(HashFunction hf : hashFunctions)
+       if(!hf.isValidHashFunction())
+        view.alertError("Invalid hash function");
 
+     //Reset the hash function code pane to default
      hashFunctions = resolver.getHashFunctionFields(dataType);
      view.setUphashFunctionFields(hashFunctions);
      
@@ -134,7 +138,7 @@ public class MainWindowController {
       table.reset();
 
       //Play visualize animation
-      Timer timer = new Timer(500, null);
+      Timer timer = new Timer(1000, null);
       timer.addActionListener(e -> {
       Result r;
       try {

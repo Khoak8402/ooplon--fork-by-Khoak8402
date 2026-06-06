@@ -5,7 +5,6 @@ import java.util.List;
 import com.hashvis.model.hashfunc.HashFunction;
 import com.hashvis.model.table.Item;
 import com.hashvis.model.table.Row;
-import com.hashvis.model.helper.DataType;
 import com.hashvis.model.helper.HashAction;
 
 abstract class OpenAddressing extends ActionProcessor {
