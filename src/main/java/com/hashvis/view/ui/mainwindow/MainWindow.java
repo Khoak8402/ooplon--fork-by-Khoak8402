@@ -137,10 +137,6 @@ public class MainWindow extends JFrame {
     return createControlPanel.getTableSize();
   }
 
-  public List<CodePane> getHashFunctionFields() {
-    return createControlPanel.getHashFunctionFields();
-  }
-
   public void setUphashFunctionFields(List<HashFunction> hashFunctions) {
     createControlPanel.setUphashFunctionFields(hashFunctions);
   }
@@ -165,10 +161,6 @@ public class MainWindow extends JFrame {
 
   public void setPseudoCode(List<String> lines) {
     pseudoCodeView.setPseudocode(lines);
-  }
-
-  public void setCurrentLine(int line) {
-    pseudoCodeView.setCurrentLine(line);
   }
 
   public void resetPseudoCode() {

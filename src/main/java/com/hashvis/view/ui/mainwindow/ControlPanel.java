@@ -5,7 +5,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-
 public class ControlPanel extends JPanel {
     private String[] tableActions = {"Insert", "Search", "Delete"};
     private JTextField inputKeyField;

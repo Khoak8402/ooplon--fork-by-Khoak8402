@@ -15,7 +15,6 @@ public class CreateControlPanel extends JPanel {
     private JButton createButton;
     private JTextField tableSizeInputPanel;
     private JPanel hashFunctionInputArea;
-    private List<CodePane> hashFunctionFields= new ArrayList<>();
 
     public CreateControlPanel(){
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -79,10 +78,6 @@ public class CreateControlPanel extends JPanel {
 
     public String getTableSize(){
         return tableSizeInputPanel.getText();
-    }
-
-    public List<CodePane> getHashFunctionFields(){
-        return hashFunctionFields;
     }
     
     public void setEnableInteraction(boolean enable){

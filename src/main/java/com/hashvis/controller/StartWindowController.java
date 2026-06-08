@@ -1,11 +1,12 @@
 package com.hashvis.controller;
 
 import java.util.Map;
+
+import com.hashvis.applicationmanager.ApplicationManager;
 import com.hashvis.model.collision.CollisionResolver;
 import com.hashvis.model.helper.DataType;
 
 import com.hashvis.view.ui.startwindow.StartWindow;
-import com.hashvis.applicationmanager.ApplicationWindowRouting;
 import com.hashvis.model.collision.DoubleHashing;
 import com.hashvis.model.collision.LinearProbing;
 import com.hashvis.model.collision.QuadraticProbing;
@@ -13,9 +14,9 @@ import com.hashvis.model.collision.SeparateChaining;
 
 public class StartWindowController {
     private StartWindow view;
-    private ApplicationWindowRouting appRouting;
+    private ApplicationManager appRouting;
 
-    public StartWindowController(StartWindow view, ApplicationWindowRouting appRouting){
+    public StartWindowController(StartWindow view, ApplicationManager appRouting){
         this.view= view;
         this.appRouting = appRouting;
 

@@ -9,20 +9,6 @@ import java.util.ArrayList;
 /**
  * A panel that displays pseudocode for the currently selected hash table
  * algorithm and highlights the active line during execution.
- *
- * The panel is divided into two vertical sections:
- * <ul>
- *   <li><b>Header</b> (top) — a title and a status label that shows the
- *       current operation (e.g. "Inserting key 42").</li>
- *   <li><b>Scrollable pseudocode area</b> (center) — each line is rendered as
- *       a {@code JLabel} in monospaced font. When a line is active, a blue
- *       triangle marker is painted in the left gutter by the
- *       {@link JPanel} subclass.</li>
- * </ul>
- *
- * The controller calls {@link #setPseudocode} when a new algorithm is loaded,
- * then {@link #setCurrentLine} on each step of the animation to advance the
- * marker. The marker is purely a paint-time overlay — no component moves.
  */
 public class HashVisualizerView extends JPanel {
   /** Index of the currently highlighted line, or -1 for no highlight. */
@@ -91,12 +77,7 @@ public class HashVisualizerView extends JPanel {
    * @param lineIndex the index of the line to highlight, or -1 to clear the
    *                  highlight
    */
-  public void setCurrentLine(int lineIndex) {
-    currentLine = lineIndex;
-    // No re-layout needed — marker position is computed from label bounds
-    // during paintComponent.
-    linePanel.repaint();
-  }
+
 
   /**
    * Updates the status text displayed below the title.
@@ -104,7 +85,8 @@ public class HashVisualizerView extends JPanel {
    * @param status the new status message to show
    */
   public void setStatus(String status) {
-    statusLabel.setText("Status: " + status);
+    // Wrap line trick with <html> tag
+    statusLabel.setText("<html> Status: " + status + "</html>");
   }
 
   /**
@@ -117,15 +99,8 @@ public class HashVisualizerView extends JPanel {
     linePanel.removeAll();
     linePanel.revalidate();
     linePanel.repaint();
+    //Reset the status
+    statusLabel.setText("Status: Waiting...");
   }
-
-  /**
-   * A panel that draws a blue right-pointing triangle marker in the gutter
-   * next to the current pseudocode line.
-   *
-   * The marker is a filled polygon drawn during {@link #paintComponent}.
-   * Its vertical position is derived from the {@code JLabel}'s bounds, so
-   * no component re-layout is needed when the highlighted line changes.
-   */
 
 }

@@ -1,19 +1,15 @@
 package com.hashvis.view.ui.startwindow;
 
 import javax.swing.*;
-
-import com.hashvis.view.ui.component.SelectionBoxComponent;
-
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-
 public class StartWindow extends JFrame{
     private String[] dataTypes = {"Integer", "String"};
     private String[] collisionResolvers = {"Linear Probing", "Quadratic Probing", "Double Hashing", "Separate Chaining"};
-    private SelectionBoxComponent dataTypeSelectionPanel;
-    private SelectionBoxComponent collisionResolverSelectionPanel;
+    private JComboBox<String> dataTypeSelectionField;
+    private JComboBox<String> collisionResolverSelectionField;
     private JButton createTableButton;
     private JButton helpButton;
     private JButton quitButton;
@@ -40,11 +36,24 @@ public class StartWindow extends JFrame{
         mainPanel.add(visualImage);
         mainPanel.add(Box.createHorizontalStrut(20));
 
-        dataTypeSelectionPanel = new SelectionBoxComponent("Data Type: ", dataTypes, new Dimension(200, 10));
+        JPanel dataTypeSelectionPanel = new JPanel();
+        dataTypeSelectionPanel.setLayout(new BoxLayout(dataTypeSelectionPanel, BoxLayout.X_AXIS));
+        dataTypeSelectionField = new JComboBox<>(dataTypes);
+        dataTypeSelectionPanel.add(new JLabel("Data Type:  "));
+        dataTypeSelectionPanel.add(dataTypeSelectionField);
+        dataTypeSelectionPanel.setPreferredSize(new Dimension(150, 10));
+        dataTypeSelectionPanel.add(Box.createHorizontalGlue());
         mainPanel.add(dataTypeSelectionPanel);
         mainPanel.add(Box.createHorizontalStrut(20));
 
-        collisionResolverSelectionPanel = new SelectionBoxComponent("Collision Resolver Algorithm: ", collisionResolvers, new Dimension(200, 10));
+        JPanel collisionResolverSelectionPanel = new JPanel();
+        collisionResolverSelectionPanel.setLayout(new BoxLayout(collisionResolverSelectionPanel, BoxLayout.X_AXIS));
+        collisionResolverSelectionField = new JComboBox<>(collisionResolvers);
+        collisionResolverSelectionPanel.add(new JLabel("Collision Resolver:  "));
+        collisionResolverSelectionPanel.add(collisionResolverSelectionField);
+        collisionResolverSelectionPanel.add(Box.createHorizontalGlue());
+        collisionResolverSelectionPanel.setPreferredSize(new Dimension(150, 10));
+    
         mainPanel.add(collisionResolverSelectionPanel);
         mainPanel.add(Box.createHorizontalStrut(20));
 
@@ -104,11 +113,11 @@ public class StartWindow extends JFrame{
     }
     
     public String getDataType(){
-        return dataTypeSelectionPanel.getSelectedOption();
+        return (String)dataTypeSelectionField.getSelectedItem();
     }
 
     public String getCollisionResolver(){
-        return collisionResolverSelectionPanel.getSelectedOption();
+        return (String)collisionResolverSelectionField.getSelectedItem();
     }
 
 }

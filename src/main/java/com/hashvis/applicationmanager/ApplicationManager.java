@@ -10,7 +10,7 @@ import com.hashvis.model.helper.DataType;
 /**
  * Top-level application controller that manages start and main windows, and routes between different views.
  */
-public class ApplicationManager implements ApplicationWindowRouting {
+public class ApplicationManager{
     private StartWindowController startCtrl;
     private MainWindowController mainCtrl;
 
@@ -18,7 +18,6 @@ public class ApplicationManager implements ApplicationWindowRouting {
         openStartWindow();
     }
 
-    @Override
     public void openStartWindow() {
         //Close the main window if it's open
         if(mainCtrl != null){
@@ -32,7 +31,6 @@ public class ApplicationManager implements ApplicationWindowRouting {
         startCtrl.setViewVisible(true);
     }
 
-    @Override
     public void openMainWindow() {
         CollisionResolver resolver;
         DataType dataType;
